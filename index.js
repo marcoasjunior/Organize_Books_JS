@@ -24,7 +24,6 @@ const livro4 = {
 
 let lista = [livro1, livro2, livro3, livro4]
 
-
 // ordem asc e desc
 function ordem_asc (array, atributo) {
     
@@ -37,7 +36,6 @@ function ordem_desc (array, atributo) {
     return array.sort((elem1, elem2) => {return elem1[atributo] < elem2[atributo] ? 1 : elem1[atributo] > elem2[atributo] ? -1 : 0})
 
 }
-
 
 // array de objetos iguais
 function iguais(array, atributo) {
@@ -56,5 +54,26 @@ function iguais(array, atributo) {
     return repete
 }
 
+let configs = localStorage.getItem(JSON.parse('config'))
+
+console.log(configs)
+
+// usar config e ordenar
+
+function ordenar(ordenados) {
+    let primeira = config.primeira_ord == 'asc' ? ordem_asc(ordenados, config.primeiro_atrib) : ordem_desc(ordenados, config.primeiro_atrib)
+    if (config.segunda_ord == '') return primeira
+    else {
+        let listaIgual = iguais(primeira,config.segundo_atrib)
+        let segunda = config.segunda_ord == 'asc' ? ordem_asc(listaIgual, config.segundo_atrib) : ordem_desc(listaIgual, config.segundo_atrib)
+        if (config.terceira_ord == '') return segunda //revisar
+        else {
+            let listaIgual2 = iguais(segunda,config.terceiro_atrib)
+            let terceira = config.segunda_ord == 'asc' ? ordem_asc(listaIgual2, config.terceiro_atrib) : ordem_desc(listaIgual2, config.terceiro_atrib)
+            return terceira //revisar
+        }
+
+    }
+}
 
 console.log(iguais(lista, 'EditionYear'))
