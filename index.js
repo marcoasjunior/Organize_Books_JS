@@ -12,7 +12,7 @@ const livro2 = {
 
 const livro3 = {
     Titulo: 'Head First Design Patterns',
-    Author: 'Elisabeth Freeman	',
+    Author: 'Elisabeth Freeman',
     EditionYear: 2004 
 }
 
@@ -24,18 +24,37 @@ const livro4 = {
 
 let lista = [livro1, livro2, livro3, livro4]
 
-function ordem_asc(array) {
+
+// ordem asc e desc
+function ordem_asc (array, atributo) {
     
-    return array.sort((elem1, elem2) => {return elem1.Titulo < elem2.Titulo ? -1 : elem1.Titulo > elem2.Titulo ? 1 : 0})
+    return array.sort((elem1, elem2) => {return elem1[atributo] < elem2[atributo] ? -1 : elem1[atributo] > elem2[atributo] ? 1 : 0})
     
 }
 
-function ordem_desc (array) {
+function ordem_desc (array, atributo) {
 
-    return array.sort((elem1, elem2) => {return elem1.Titulo < elem2.Titulo ? 1 : elem1.Titulo > elem2.Titulo ? -1 : 0})
+    return array.sort((elem1, elem2) => {return elem1[atributo] < elem2[atributo] ? 1 : elem1[atributo] > elem2[atributo] ? -1 : 0})
 
 }
 
 
-console.table(ordem_desc(lista))
+// array de objetos iguais
+function iguais(array, atributo) {
 
+    let repete = []
+
+    for (i = 0; i < array.length; i++){
+        let aux = [array[i]]
+        for (x = i; x < array.length; x++){
+            if (i != x && array[i][atributo] == array[x][atributo]) aux.push(array[x])
+        }
+        
+        repete.push(aux)
+    }
+
+    return repete
+}
+
+
+console.log(iguais(lista, 'EditionYear'))
