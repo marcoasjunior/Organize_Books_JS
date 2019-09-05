@@ -2,9 +2,9 @@
 
 const config = {
     primeira_ord: 'asc',
-    primeiro_atrib: 'EditionYear',
+    primeiro_atrib: 'Author',
     segunda_ord: 'desc',
-    segundo_atrib: 'Author',
+    segundo_atrib: 'Titulo',
     terceira_ord: '',
     terceiro_atrib: ''
 }
