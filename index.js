@@ -54,21 +54,30 @@ function iguais(array, atributo) {
     return repete
 }
 
-let configs = localStorage.getItem(JSON.parse('config'))
+let configs = JSON.parse(localStorage.getItem('config'))
 
 console.log(configs)
 
 // usar config e ordenar
-
 function ordenar(ordenados) {
+    
     let primeira = config.primeira_ord == 'asc' ? ordem_asc(ordenados, config.primeiro_atrib) : ordem_desc(ordenados, config.primeiro_atrib)
+    let listaIgual = ''
+    let listaIgual2 = ''
+    let filtrado = ''
+    let indice = 0
+
     if (config.segunda_ord == '') return primeira
     else {
-        let listaIgual = iguais(primeira,config.segundo_atrib)
+        listaIgual = iguais(primeira, config.segundo_atrib)
         let segunda = config.segunda_ord == 'asc' ? ordem_asc(listaIgual, config.segundo_atrib) : ordem_desc(listaIgual, config.segundo_atrib)
-        if (config.terceira_ord == '') return segunda //revisar
+        if (config.terceira_ord == '') {
+            filtrado = segunda.filter((valor) => valor > lista[0])
+            indice = segunda.indexOf(filtrado[0])
+          //  primeira.splice()
+            return primeira.splice(indice, (filtrado.length + 1), ...filtrado)}
         else {
-            let listaIgual2 = iguais(segunda,config.terceiro_atrib)
+            listaIgual2 = iguais(segunda,config.terceiro_atrib)
             let terceira = config.segunda_ord == 'asc' ? ordem_asc(listaIgual2, config.terceiro_atrib) : ordem_desc(listaIgual2, config.terceiro_atrib)
             return terceira //revisar
         }
@@ -76,4 +85,4 @@ function ordenar(ordenados) {
     }
 }
 
-console.log(iguais(lista, 'EditionYear'))
+console.log(ordenar(lista))
