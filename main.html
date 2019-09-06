@@ -1,11 +1,105 @@
 <!DOCTYPE html>
- <html>
- <head>
-    <title>Desafio_Zygo</title>
-    <script src="config.js"></script>
-    <script src="index.js"></script>
-</head>
- <body>
-    <!-- Conteúdo -->
- </body>
- </html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>Desafio_Zygo</title>         
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+        <!-- CSS -->
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" 
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+        <link rel="stylesheet" href="wow.css">
+
+        
+
+        
+
+    </head>
+    <body>
+      <nav id="nav1" class="navbar navbar-light">
+         <a class="navbar-brand" href="#">
+           Desafio Zygo
+         </a>
+       </nav>
+
+      <div class='bloco shadow p-3 mb-5 bg-white rounded'>
+         <span class="h6">Primeira Ordenação</span>
+
+      <form id='form'>
+         <div class="form-check">
+            <input class="form-check-input" type="radio" name="ordena1" id="idordena1" value="asc" checked>
+            <label class="form-check-label" for="exampleRadios1">
+            Ascendente
+            </label>
+         </div>
+      
+         <div class="form-check">
+            <input class="form-check-input" type="radio" name="ordena1" id="idordena2" value="desc">
+            <label class="form-check-label" for="exampleRadios2">
+            Descendente
+            </label>
+         </div>
+
+         <div class="input-group mb-3">
+               <div class="input-group-prepend">
+               <span class="input-group-text" id="inputGroup-sizing-default">Atributo</span>
+               </div>
+               <input id="atrib1" type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
+            </div>
+
+         <span class="h6">Segunda Ordenação</span>
+         <div class="form-check">
+               <input class="form-check-input" type="radio" name="ordena2" id="idordena3" value="asc" checked>
+               <label class="form-check-label" for="exampleRadios1">
+               Ascendente
+               </label>
+         </div>
+         
+
+         <div class="form-check">
+            <input class="form-check-input" type="radio" name="ordena2" id="idordena4" value="desc">
+            <label class="form-check-label" for="exampleRadios2">
+            Descendente
+            </label>
+         </div>
+
+         <div class="input-group mb-3">
+               <div class="input-group-prepend">
+               <span class="input-group-text" id="inputGroup-sizing-default">Atributo</span>
+               </div>
+               <input id="atrib2" type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
+            </div>
+
+         <span class="h6">Terceira Ordenação</span>
+         <div class="form-check">
+               <input class="form-check-input" type="radio" name="ordena3" id="idordena5" value="asc" checked>
+               <label class="form-check-label" for="exampleRadios1">
+               Ascendente
+               </label>
+         </div>
+         
+
+         <div class="form-check">
+            <input class="form-check-input" type="radio" name="ordena3" id="idordena6" value="desc">
+            <label class="form-check-label" for="exampleRadios2">
+            Descendente
+            </label>
+         </div>
+
+         <div class="input-group mb-3">
+               <div class="input-group-prepend">
+               <span class="input-group-text" id="inputGroup-sizing-default">Atributo</span>
+               </div>
+               <input id='atrib3' type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default">
+            </div>
+         <button id="submit" type="submit" class="btn btn-primary" onclick='valores()'>Salvar</button>
+      </form>
+      <button id="button1" type="button" class="btn btn-primary" onclick='ordenar()'>Ordenar</button>
+      </div>
+
+      <!-- Script -->
+      <script src="config.js"></script>
+      <script src="index.js"></script>
+
+    </body>
+    

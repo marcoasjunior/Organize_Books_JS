@@ -24,16 +24,18 @@ const livro4 = {
 
 let lista = [livro1, livro2, livro3, livro4]
 
+localStorage.setItem('lista', JSON.stringify(lista))
+
 // ordem asc e desc
-function ordem_asc (array, atributo) {
+function ordem_asc (lista, atributo) {
     
-    return array.sort((elem1, elem2) => {return elem1[atributo] < elem2[atributo] ? -1 : elem1[atributo] > elem2[atributo] ? 1 : 0})
+    return lista.sort((elem1, elem2) => {return elem1[atributo] < elem2[atributo] ? -1 : elem1[atributo] > elem2[atributo] ? 1 : 0})
     
 }
 
-function ordem_desc (array, atributo) {
+function ordem_desc (lista, atributo) {
 
-    return array.sort((elem1, elem2) => {return elem1[atributo] < elem2[atributo] ? 1 : elem1[atributo] > elem2[atributo] ? -1 : 0})
+    return lista.sort((elem1, elem2) => {return elem1[atributo] < elem2[atributo] ? 1 : elem1[atributo] > elem2[atributo] ? -1 : 0})
 
 }
 
@@ -55,21 +57,18 @@ function iguais(array, atributo) {
 
 }
 
-let configs = JSON.parse(localStorage.getItem('config'))
-
-console.log(configs)
-
-// usar config e ordenar
-function ordenar(ordenados) {
+function processo() {
     
-    if (config.primeira_ord = '') return ''
-    if (ordenados = null) throw 'OrderingException'
+    let config = JSON.parse(localStorage.getItem('config'))
+    let lista  = JSON.parse(localStorage.getItem('lista'))
+    if (config.primeira_ord == '') return ''
+    if (lista == null) throw 'OrderingException'
     
     let listaIgual = ''
     let listaIgual2 = ''
     let filtrado = ''
     let indice = 0
-    let primeira = config.primeira_ord == 'asc' ? ordem_asc(ordenados, config.primeiro_atrib) : ordem_desc(ordenados, config.primeiro_atrib)
+    let primeira = config.primeira_ord == 'asc' ? ordem_asc(lista, config.primeiro_atrib) : ordem_desc(lista, config.primeiro_atrib)
 
     if (config.segunda_ord == '') return primeira
    
@@ -142,4 +141,9 @@ function ordenar(ordenados) {
     
 }
 
-console.log(ordenar(lista))
+// usar config e ordenar
+function ordenar() {
+    
+    console.log(processo())
+
+}
